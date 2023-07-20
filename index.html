@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web site cadastro</title>
+</head>
+<body>
+
+       <h1>Login</h1>
+    
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" required><br>
+      
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" required><br>
+     
+     <button onclick="verificarLogin()">verificarLogin</button>
+    
+    <p>resultado</p>
+    <p id="resultado"></p>
+    
+    <script>
+      function verificarLogin() {
+        var email = document.getElementById('email').value;
+        var senha = document.getElementById('senha').value;
+        
+        google.script.run.withSuccessHandler(exibirResultado).verificarLogin(email, senha);
+      }
+      
+      function exibirResultado(verificarLogin) {
+       var exibirResultado = document.getElementById('exibirResultado');
+       exibirResultado.innerHTML = verificarLogin;
+      }
+    </script>
+    
+</body>
+</html>
